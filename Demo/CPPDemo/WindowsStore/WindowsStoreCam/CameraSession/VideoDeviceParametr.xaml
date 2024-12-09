@@ -1,0 +1,27 @@
+﻿<UserControl
+    x:Class="CameraSession.VideoDeviceParametr"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CameraSession"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <Grid Name="ShutterGrid" HorizontalAlignment="Center" Margin="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="18" x:Name="mTitle"/>
+        <Slider Grid.Row="1" Grid.Column="0" Margin="10, -5, 10, 10" VerticalAlignment="Center" Foreground="Black"
+                x:Name="mValueSlider" Height="20" Width="150" MinWidth="150" MaxWidth="150"
+                 IsEnabled="{Binding ElementName=mModeCheckBox, Path=IsChecked}"/>
+        <CheckBox Unchecked="mModeCheckBox_Checked" Checked="mModeCheckBox_Checked" IsChecked="False" x:Name="mModeCheckBox" Grid.Column="1" Grid.Row="1"/>
+    </Grid>
+</UserControl>

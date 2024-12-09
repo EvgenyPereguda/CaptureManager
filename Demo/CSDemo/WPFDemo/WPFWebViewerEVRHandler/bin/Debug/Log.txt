@@ -1,0 +1,52 @@
+INFO_LEVEL: ***** CAPTUREMANAGER SDK 1.23.0 Freeware - Jul 11 2023 (Author: Evgeny Pereguda) *****
+
+INFO_LEVEL: MediaFoundationManager: Media Foundation is initialized!!!
+INFO_LEVEL: DMOManager: DMO is initialized!!!
+ERROR_LEVEL:  Line: 93, Func: CaptureManager::Sources::DirectShowCaptureProcessorFactory::createDirectShowVideoInputCaptureProcessors Error code: 0x80004003, Description: nullptr was passed incorrectly for a pointer value.
+ERROR_LEVEL:  Line: 1795, Func: CaptureManager::Sources::ScreenCapture::ScreenCaptureProcessorIDXGIOutputDuplication::enumIInnerCaptureProcessor Error code: 0x80070057, Description: Invalid parameter value.
+ERROR_LEVEL:  Line: 383, Func: CaptureManager::Sinks::EVR::Direct3D11::Direct3D11Presenter::setVideoWindowHandle Error code: 0x80070057, Description: Invalid parameter value.
+ERROR_LEVEL:  Line: 383, Func: CaptureManager::Sinks::EVR::PresenterFactory::createDirect3D11PresenterFromWindowHandler Error code: 0x80070057, Description: Invalid parameter value.
+ERROR_LEVEL:  Line: 81, Func: CaptureManager::Sinks::EVR::PresenterFactory::createPresenter Error code: 0x80070057, Description: Invalid parameter value.
+ERROR_LEVEL:  Line: 919, Func: CaptureManager::Sinks::EVR::Direct3D9::Direct3D9Presenter::setVideoWindowHandle Error code: 0x80070057, Description: Invalid parameter value.
+ERROR_LEVEL:  Line: 327, Func: CaptureManager::Sinks::EVR::PresenterFactory::createDirect3D9PresenterFromWindowHandler Error code: 0x80070057, Description: Invalid parameter value.
+ERROR_LEVEL:  Line: 91, Func: CaptureManager::Sinks::EVR::PresenterFactory::createPresenter Error code: 0x80070057, Description: Invalid parameter value.
+ERROR_LEVEL: CaptureManager::Core::MediaFoundation::MediaFoundationManager::GetService Error code: 0xc00d36ba, Description: The object does not support the specified service.
+ERROR_LEVEL:  Line: 2154, Func: CaptureManager::MediaSession::CustomisedMediaSession::CustomisedMediaSession::resolveStreamTopology Error code: 0xc00d36ba, Description: The object does not support the specified service.
+ERROR_LEVEL:  Line: 259, Func: CaptureManager::MediaSession::CustomisedMediaSession::VideoTopologyResolver::getInputMediaTypeOfMediaSink Error code: 0xc00d36e6, Description: The requested attribute was not found.
+ERROR_LEVEL:  Line: 362, Func: CaptureManager::Sinks::EVR::EVRStreamSink::IsMediaTypeSupported Error code: 0x80004005, Description: Unspecified error.
+ERROR_LEVEL:  Line: 431, Func: CaptureManager::Sinks::EVR::EVRStreamSink::SetCurrentMediaType Error code: 0x80004005, Description: Unspecified error.
+ERROR_LEVEL: CaptureManager::Core::MediaFoundation::MediaFoundationManager::SetCurrentMediaType Error code: 0x80004005, Description: Unspecified error.
+ERROR_LEVEL:  Line: 888, Func: CaptureManager::MediaSession::CustomisedMediaSession::VideoTopologyResolver::resolveConnectionVideoSampleAllocatorMediaSink Error code: 0x80004005, Description: Unspecified error.
+ERROR_LEVEL:  Line: 3041, Func: CaptureManager::MediaSession::CustomisedMediaSession::VideoTopologyResolver::findSuitableDecoderMediaType Error code: 0xc00d5212, Description: No suitable transform was found to encode or decode the content.
+ERROR_LEVEL:  Line: 362, Func: CaptureManager::Sinks::EVR::EVRStreamSink::IsMediaTypeSupported Error code: 0x80004005, Description: Unspecified error.
+ERROR_LEVEL:  Line: 431, Func: CaptureManager::Sinks::EVR::EVRStreamSink::SetCurrentMediaType Error code: 0x80004005, Description: Unspecified error.
+ERROR_LEVEL:  Line: 899, Func: CaptureManager::Sinks::EVR::Direct3D9::Direct3D9Presenter::createDevice Error code: 0x80070057, Description: Invalid parameter value.
+ERROR_LEVEL: CaptureManager::Core::MediaFoundation::MediaFoundationManager::GetUnknown Error code: 0xc00d36e6, Description: The requested attribute was not found.
+ERROR_LEVEL:  Line: 3366, Func: CaptureManager::MediaSession::CustomisedMediaSession::VideoTopologyResolver::checkDemandForDirectX11Convertor Error code: 0xc00d36e6, Description: The requested attribute was not found.
+ERROR_LEVEL: CaptureManager::Core::MediaFoundation::MediaFoundationManager::GetUnknown Error code: 0xc00d36e6, Description: The requested attribute was not found.
+ERROR_LEVEL:  Line: 3378, Func: CaptureManager::MediaSession::CustomisedMediaSession::VideoTopologyResolver::checkDemandForDirectX11Convertor Error code: 0xc00d36e6, Description: The requested attribute was not found.
+INFO_LEVEL: SessionProcessor: setTopology - topology is ready!!!  Error code: 0000000000, Description: Success with the result.
+ERROR_LEVEL:  Line: 2446, Func: CaptureManager::MediaSession::CustomisedMediaSession::CustomisedMediaPipelineProcessor::init Error code: 0xc00d36e6, Description: The requested attribute was not found.
+ERROR_LEVEL: CaptureManager::MediaSession::CustomisedMediaSession::CustomisedMediaPipelineProcessor::finishSourceStreamStarting Error code: 0x8004e006, Description: The component is configured to use synchronization and a thread has timed out waiting to enter the context.
+ERROR_LEVEL:  Line: 2039, Func: CaptureManager::MediaSession::CustomisedMediaSession::CustomisedMediaPipelineProcessor::startSources Error code: 0x8004e006, Description: The component is configured to use synchronization and a thread has timed out waiting to enter the context.
+ERROR_LEVEL:  Line: 1491, Func: CaptureManager::MediaSession::CustomisedMediaSession::CustomisedMediaSession::Start Error code: 0xc00d3704, Description: Hardware MFT failed to start streaming due to lack of hardware resources.
+ERROR_LEVEL: CaptureManager::Core::MediaFoundation::MediaFoundationManager::Start Error code: 0xc00d3704, Description: Hardware MFT failed to start streaming due to lack of hardware resources.
+ERROR_LEVEL:  Line: 177, Func: CaptureManager::Core::SessionProcessor::startCapture Error code: 0xc00d3704, Description: Hardware MFT failed to start streaming due to lack of hardware resources.
+INFO_LEVEL: SessionProcessor: startCapture - cannot be started!!!  Error code: 0xc00d3704, Description: Hardware MFT failed to start streaming due to lack of hardware resources.
+ERROR_LEVEL: MFCancelWorkItem Error code: 0x80070057, Description: Invalid parameter value.
+ERROR_LEVEL:  Line: 3064, Func: CaptureManager::MediaSession::CustomisedMediaSession::CustomisedMediaPipelineProcessor::registerTriggerEvent::TriggerEvent::releaseDeviceEvent Error code: 0x80070057, Description: Invalid parameter value.
+ERROR_LEVEL:  Line: 3092, Func: CaptureManager::MediaSession::CustomisedMediaSession::CustomisedMediaPipelineProcessor::registerTriggerEvent Error code: 0xc00d36d5, Description: The specified object or value does not exist.
+ERROR_LEVEL:  Line: 323, Func: CaptureManager::MediaSession::CustomisedMediaSession::CustomisedMediaPipelineProcessor::handleSourceRequest Error code: 0xc00d36d5, Description: The specified object or value does not exist.
+ERROR_LEVEL: SessionProcessor: closeSession - time is out!!!  Error code: 0x8004e006, Description: The component is configured to use synchronization and a thread has timed out waiting to enter the context.
+ERROR_LEVEL: CaptureManager::Core::MediaFoundation::MediaFoundationManager::BeginGetEvent Error code: 0xc00d3e85, Description: The request is invalid because Shutdown() has been called.
+ERROR_LEVEL:  Line: 389, Func: CaptureManager::MediaSession::CustomisedMediaSession::CustomisedMediaPipelineProcessor::handleSourceRequest Error code: 0xc00d3e85, Description: The request is invalid because Shutdown() has been called.
+ERROR_LEVEL:  Line: 218, Func: CaptureManager::Sinks::EVR::EVRMediaSink::Shutdown Error code: 0xc00d3e85, Description: The request is invalid because Shutdown() has been called.
+ERROR_LEVEL: CaptureManager::Core::MediaFoundation::MediaFoundationManager::Shutdown Error code: 0xc00d3e85, Description: The request is invalid because Shutdown() has been called.
+ERROR_LEVEL:  Line: 112, Func: CaptureManager::Sinks::EVR::EVRActivate<class CaptureManager::Sinks::EVR::EVRMediaSinkFactory>::ShutdownObject Error code: 0xc00d3e85, Description: The request is invalid because Shutdown() has been called.
+ERROR_LEVEL:  Line: 640, Func: CaptureManager::Core::SessionProcessor::processMediaEvent Error code: 0x80004003, Description: nullptr was passed incorrectly for a pointer value.
+INFO_LEVEL: CaptureManager::Core::SessionProcessor::processMediaEvent Error code: 0x80004003, Description: nullptr was passed incorrectly for a pointer value.
+ERROR_LEVEL:  Line: 1896, Func: CaptureManager::CaptureManagerBroker::startSession Error code: 0xc00d3704, Description: Hardware MFT failed to start streaming due to lack of hardware resources.
+ERROR_LEVEL: CaptureManager: startSession is not executable!!!  Error code: 0xc00d3704, Description: Hardware MFT failed to start streaming due to lack of hardware resources.
+ERROR_LEVEL:  Line: 132, Func: CaptureManager::COMServer::Session::startSession Error code: 0xc00d3704, Description: Hardware MFT failed to start streaming due to lack of hardware resources.
+ERROR_LEVEL: CaptureManager::Core::MediaFoundation::MediaFoundationManager::EndGetEvent Error code: 0xc00d3e85, Description: The request is invalid because Shutdown() has been called.
+ERROR_LEVEL:  Line: 424, Func: CaptureManager::MediaSession::CustomisedMediaSession::CustomisedMediaPipelineProcessor::handleSourceStreamRequest Error code: 0xc00d3e85, Description: The request is invalid because Shutdown() has been called.

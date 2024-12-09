@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{96B46EDB-1EB6-4EC5-A555-6EE409357D3A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CaptureManagerToCSharpProxy</RootNamespace>
+    <AssemblyName>CaptureManagerToCSharpProxy</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interfaces\ICompatibleEVRMultiSinkFactoryAsync.cs" />
+    <Compile Include="WrapClasses\AudioMixerControl.cs" />
+    <Compile Include="WrapClasses\ByteStreamSinkFactory.cs" />
+    <Compile Include="CaptureManager.cs" />
+    <Compile Include="WrapClasses\CaptureProcessor.cs" />
+    <Compile Include="WrapClasses\CompatibleEVRMultiSinkFactory.cs" />
+    <Compile Include="WrapClasses\EncoderControl.cs" />
+    <Compile Include="WrapClasses\EncoderNodeFactory.cs" />
+    <Compile Include="WrapClasses\EVRMultiSinkFactory.cs" />
+    <Compile Include="WrapClasses\EVRSinkFactory.cs" />
+    <Compile Include="WrapClasses\EVRStreamControl.cs" />
+    <Compile Include="WrapClasses\FileSinkFactory.cs" />
+    <Compile Include="Interfaces\IAudioMixerControl.cs" />
+    <Compile Include="Interfaces\IAudioMixerControlAsync.cs" />
+    <Compile Include="Interfaces\IByteStreamSinkFactoryAsync.cs" />
+    <Compile Include="Interfaces\ICaptureProcessor.cs" />
+    <Compile Include="Interfaces\IByteStreamSinkFactory.cs" />
+    <Compile Include="Interfaces\ICompatibleEVRMultiSinkFactory.cs" />
+    <Compile Include="Interfaces\ICurrentMediaType.cs" />
+    <Compile Include="Interfaces\IEncoderControl.cs" />
+    <Compile Include="Interfaces\IEncoderControlAsync.cs" />
+    <Compile Include="Interfaces\IEncoderNodeFactory.cs" />
+    <Compile Include="Interfaces\IEncoderNodeFactoryAsync.cs" />
+    <Compile Include="Interfaces\IEVRMultiSinkFactory.cs" />
+    <Compile Include="Interfaces\IEVRMultiSinkFactoryAsync.cs" />
+    <Compile Include="Interfaces\IEVRSinkFactory.cs" />
+    <Compile Include="Interfaces\IEVRSinkFactoryAsync.cs" />
+    <Compile Include="Interfaces\IEVRStreamControlAsync.cs" />
+    <Compile Include="Interfaces\IFileSinkFactory.cs" />
+    <Compile Include="Interfaces\IFileSinkFactoryAsync.cs" />
+    <Compile Include="Interfaces\IInitilaizeCaptureSource.cs" />
+    <Compile Include="Interfaces\IMediaFoundationNode.cs" />
+    <Compile Include="Interfaces\IEVRStreamControl.cs" />
+    <Compile Include="Interfaces\IMixerNodeFactory.cs" />
+    <Compile Include="Interfaces\IMixerNodeFactoryAsync.cs" />
+    <Compile Include="Interfaces\InnerInterfaces.cs" />
+    <Compile Include="Interfaces\IRenderingControl.cs" />
+    <Compile Include="Interfaces\IRenderingControlAsync.cs" />
+    <Compile Include="Interfaces\ISampleGrabberCall.cs" />
+    <Compile Include="Interfaces\ISampleGrabberCallAsync.cs" />
+    <Compile Include="Interfaces\ISampleGrabberCallback.cs" />
+    <Compile Include="Interfaces\ISampleGrabberCallbackSinkFactory.cs" />
+    <Compile Include="Interfaces\ISampleGrabberCallbackSinkFactoryAsync.cs" />
+    <Compile Include="Interfaces\ISampleGrabberCallSinkFactory.cs" />
+    <Compile Include="Interfaces\ISampleGrabberCallSinkFactoryAsync.cs" />
+    <Compile Include="Interfaces\ISARSinkFactory.cs" />
+    <Compile Include="Interfaces\ISARSinkFactoryAsync.cs" />
+    <Compile Include="Interfaces\ISARVolumeControl.cs" />
+    <Compile Include="Interfaces\ISARVolumeControlAsync.cs" />
+    <Compile Include="Interfaces\ISession.cs" />
+    <Compile Include="Interfaces\ISessionAsync.cs" />
+    <Compile Include="Interfaces\ISessionControl.cs" />
+    <Compile Include="Interfaces\ISessionControlAsync.cs" />
+    <Compile Include="Interfaces\ISinkControl.cs" />
+    <Compile Include="Interfaces\ISinkControlAsync.cs" />
+    <Compile Include="Interfaces\ISourceControl.cs" />
+    <Compile Include="Interfaces\ISourceControlAsync.cs" />
+    <Compile Include="Interfaces\ISourceRequestResult.cs" />
+    <Compile Include="Interfaces\ISpreaderNodeFactory.cs" />
+    <Compile Include="Interfaces\ISpreaderNodeFactoryAsync.cs" />
+    <Compile Include="Interfaces\IStreamControl.cs" />
+    <Compile Include="Interfaces\IStreamControlAsync.cs" />
+    <Compile Include="Interfaces\ISwitcherControl.cs" />
+    <Compile Include="Interfaces\ISwitcherControlAsync.cs" />
+    <Compile Include="Interfaces\ISwitcherNodeFactory.cs" />
+    <Compile Include="Interfaces\ISwitcherNodeFactoryAsync.cs" />
+    <Compile Include="Interfaces\IVersionControl.cs" />
+    <Compile Include="Interfaces\IVersionControlAsync.cs" />
+    <Compile Include="Interfaces\IVideoMixerControl.cs" />
+    <Compile Include="Interfaces\IVideoMixerControlAsync.cs" />
+    <Compile Include="Interfaces\IWebCamControl.cs" />
+    <Compile Include="Interfaces\IWebCamControlAsync.cs" />
+    <Compile Include="LogManager.cs" />
+    <Compile Include="WrapClasses\LogPrintOutCallback.cs" />
+    <Compile Include="WrapClasses\MixerNodeFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WrapClasses\RenderingControl.cs" />
+    <Compile Include="WrapClasses\SampleGrabberCall.cs" />
+    <Compile Include="WrapClasses\SampleGrabberCallback.cs" />
+    <Compile Include="WrapClasses\SampleGrabberCallbackSinkFactory.cs" />
+    <Compile Include="WrapClasses\SampleGrabberCallSinkFactory.cs" />
+    <Compile Include="WrapClasses\SARSinkFactory.cs" />
+    <Compile Include="WrapClasses\SARVolumeControl.cs" />
+    <Compile Include="WrapClasses\Session.cs" />
+    <Compile Include="WrapClasses\SessionCallback.cs" />
+    <Compile Include="WrapClasses\SessionControl.cs" />
+    <Compile Include="WrapClasses\SinkControl.cs" />
+    <Compile Include="WrapClasses\SourceControl.cs" />
+    <Compile Include="WrapClasses\SpreaderNodeFactory.cs" />
+    <Compile Include="WrapClasses\StreamControl.cs" />
+    <Compile Include="WrapClasses\SwitcherControl.cs" />
+    <Compile Include="WrapClasses\SwitcherNodeFactory.cs" />
+    <Compile Include="WrapClasses\VersionControl.cs" />
+    <Compile Include="WrapClasses\VideoMixerControlcs.cs" />
+    <Compile Include="WrapClasses\WebCamControl.cs" />
+    <Compile Include="Util\Win32NativeMethods.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="CaptureManagerLibrary">
+      <Guid>{9BE7E321-6A95-4025-A2DD-4567687BFD53}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

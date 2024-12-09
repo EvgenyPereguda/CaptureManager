@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "WPFWebViewerEVRDirectX12": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

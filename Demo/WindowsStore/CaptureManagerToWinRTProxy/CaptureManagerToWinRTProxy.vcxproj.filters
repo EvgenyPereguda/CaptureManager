@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="ByteStreamSinkFactory.cpp" />
+    <ClCompile Include="EncoderControl.cpp" />
+    <ClCompile Include="EncoderNodeFactory.cpp" />
+    <ClCompile Include="EVRSinkFactory.cpp" />
+    <ClCompile Include="FileSinkFactory.cpp" />
+    <ClCompile Include="LogPrintOutControl.cpp" />
+    <ClCompile Include="MediaSource.cpp" />
+    <ClCompile Include="MediaType.cpp" />
+    <ClCompile Include="MediaTypeParser.cpp" />
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="CaptureManager.cpp" />
+    <ClCompile Include="SampleGrabberCall.cpp" />
+    <ClCompile Include="SampleGrabberCallbackSinkFactory.cpp" />
+    <ClCompile Include="SampleGrabberCallSinkFactory.cpp" />
+    <ClCompile Include="Session.cpp" />
+    <ClCompile Include="SessionControl.cpp" />
+    <ClCompile Include="SinkControl.cpp" />
+    <ClCompile Include="SourceControl.cpp" />
+    <ClCompile Include="SpreaderNodeFactory.cpp" />
+    <ClCompile Include="StreamControl.cpp" />
+    <ClCompile Include="StrideForBitmap.cpp" />
+    <ClCompile Include="TopologyNode.cpp" />
+    <ClCompile Include="VersionControl.cpp" />
+    <ClCompile Include="WebCamControl.cpp" />
+    <ClCompile Include="EVRMultiSinkFactory.cpp" />
+    <ClCompile Include="WrapperIntPtr.cpp" />
+    <ClCompile Include="EVRStreamControl.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BaseUnknown.h" />
+    <ClInclude Include="ByteStreamSinkFactory.h" />
+    <ClInclude Include="CaptureManagerTypeInfo.h" />
+    <ClInclude Include="ComPtrCustom.h" />
+    <ClInclude Include="EncoderControl.h" />
+    <ClInclude Include="EncoderNodeFactory.h" />
+    <ClInclude Include="EVRSinkFactory.h" />
+    <ClInclude Include="FileSinkFactory.h" />
+    <ClInclude Include="LogPrintOutControl.h" />
+    <ClInclude Include="MediaSource.h" />
+    <ClInclude Include="MediaType.h" />
+    <ClInclude Include="MediaTypeParser.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="CaptureManager.h" />
+    <ClInclude Include="SampleGrabberCall.h" />
+    <ClInclude Include="SampleGrabberCallbackSinkFactory.h" />
+    <ClInclude Include="SampleGrabberCallSinkFactory.h" />
+    <ClInclude Include="Session.h" />
+    <ClInclude Include="SessionControl.h" />
+    <ClInclude Include="SinkControl.h" />
+    <ClInclude Include="SourceControl.h" />
+    <ClInclude Include="SpreaderNodeFactory.h" />
+    <ClInclude Include="StreamControl.h" />
+    <ClInclude Include="StrideForBitmap.h" />
+    <ClInclude Include="TopologyNode.h" />
+    <ClInclude Include="VersionControl.h" />
+    <ClInclude Include="WebCamControl.h" />
+    <ClInclude Include="Interfaces\IByteStreamSinkFactory.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\IEncoderControl.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\IEncoderNodeFactory.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\IEVRSinkFactory.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\IFileSinkFactory.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\ILogPrintOutControl.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\IMediaSource.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\IMediaType.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\IMediaTypeParser.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\ISampleGrabberCall.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\ISampleGrabberCallback.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\ISampleGrabberCallbackSinkFactory.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\ISampleGrabberCallSinkFactory.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\ISession.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\ISessionCallback.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\ISessionControl.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\ISinkControl.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\ISourceControl.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\ISpreaderNodeFactory.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\IStreamControl.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\IStrideForBitmap.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\ITopologyNode.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\IVersionControl.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\IWebCamControl.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\IWriteableBitmapCallback.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\IEVRMultiSinkFactory.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="EVRMultiSinkFactory.h" />
+    <ClInclude Include="IInitilaizeCaptureSource.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\ICurrentMediaType.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\ICaptureProcessor.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\ISourceRequestResult.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\IIntPtr.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="WrapperIntPtr.h" />
+    <ClInclude Include="Interfaces\IEVRStreamControl.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="EVRStreamControl.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Interfaces">
+      <UniqueIdentifier>{796f49e9-ecc5-4fa6-82a6-84cac97e66b5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

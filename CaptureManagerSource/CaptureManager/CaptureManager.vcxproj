@@ -1,0 +1,402 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{0F194C92-6E0E-4C91-A2D5-C3BBEEC0623D}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>CaptureManager</RootNamespace>
+    <WindowsTargetPlatformVersion>$(DefaultWindowsSDKVersion)</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>$(DefaultPlatformToolset)</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>$(DefaultPlatformToolset)</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>$(DefaultPlatformToolset)</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>$(DefaultPlatformToolset)</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="VersionPropertySheet.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="VersionPropertySheet.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="VersionPropertySheet.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="VersionPropertySheet.props" />
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>Win32;_DEBUG;_WINDOWS;_USRDLL;CAPTUREMANAGER_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ModuleDefinitionFile>Main.def</ModuleDefinitionFile>
+      <ImportLibrary>$(ProjectDir)$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <OptimizeReferences>false</OptimizeReferences>
+      <ForceSymbolReferences>
+      </ForceSymbolReferences>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>mkdir "$(SolutionDir)Bin\$(PlatformShortName)\$(ConfigurationName)" 
+copy "$(TargetPath)" "$(SolutionDir)Bin\$(PlatformShortName)\$(ConfigurationName)\$(TargetName)$(TargetExt)"
+"$(ProjectDir)Tools\Post-Build.bat"</Command>
+      <Message>Auto increment build number</Message>
+    </PostBuildEvent>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
+    </ProjectReference>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(OutDir)</AdditionalIncludeDirectories>
+      <Culture>0x0c09</Culture>
+    </ResourceCompile>
+    <PreBuildEvent>
+      <Command>ping 127.0.0.1 -n 6 &gt; nul</Command>
+    </PreBuildEvent>
+    <PreLinkEvent>
+      <Command>ping 127.0.0.1 -n 6 &gt; nul</Command>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>Win32;_DEBUG;_WINDOWS;_USRDLL;CAPTUREMANAGER_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ModuleDefinitionFile>Main.def</ModuleDefinitionFile>
+      <ImportLibrary>$(ProjectDir)$(Configuration)\$(TargetName).lib</ImportLibrary>
+    </Link>
+    <PostBuildEvent>
+      <Command>mkdir "$(SolutionDir)Bin\$(PlatformShortName)\$(ConfigurationName)" 
+copy "$(TargetPath)" "$(SolutionDir)Bin\$(PlatformShortName)\$(ConfigurationName)\$(TargetName)$(TargetExt)"
+"$(ProjectDir)Tools\Post-Build.bat"</Command>
+      <Message>Auto increment build number</Message>
+    </PostBuildEvent>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(OutDir)</AdditionalIncludeDirectories>
+      <Culture>0x0c09</Culture>
+    </ResourceCompile>
+    <PreBuildEvent>
+      <Command>ping 127.0.0.1 -n 6 &gt; nul</Command>
+    </PreBuildEvent>
+    <PreLinkEvent>
+      <Command>ping 127.0.0.1 -n 6 &gt; nul</Command>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>Win32;NDEBUG;_WINDOWS;_USRDLL;CAPTUREMANAGER_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ProgramDataBaseFileName>$(IntermediateOutputPath)$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ModuleDefinitionFile>Main.def</ModuleDefinitionFile>
+      <ImportLibrary>$(IntermediateOutputPath)$(TargetName).lib</ImportLibrary>
+      <ProgramDatabaseFile>$(IntermediateOutputPath)$(TargetName).pdb</ProgramDatabaseFile>
+    </Link>
+    <PostBuildEvent>
+      <Command>mkdir "$(SolutionDir)$(ProjectName)SDK-$(Version_Major).$(Version_Minor).$(Version_Patch)-$(Add_Label)\$(PlatformShortName)" 
+mkdir "$(SolutionDir)Bin\$(PlatformShortName)\$(ConfigurationName)" 
+copy "$(TargetPath)" "$(SolutionDir)Bin\$(PlatformShortName)\$(ConfigurationName)\$(TargetName)$(TargetExt)"
+copy "$(TargetPath)" "$(SolutionDir)$(ProjectName)SDK-$(Version_Major).$(Version_Minor).$(Version_Patch)-$(Add_Label)\$(PlatformShortName)\$(TargetName)$(TargetExt)"
+"$(ProjectDir)Tools\Post-Build.bat"</Command>
+      <Message>Auto increment build number</Message>
+    </PostBuildEvent>
+    <ResourceCompile>
+      <Culture>0x0c09</Culture>
+      <AdditionalIncludeDirectories>$(OutDir)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <PreBuildEvent>
+      <Command>ping 127.0.0.1 -n 6 &gt; nul</Command>
+    </PreBuildEvent>
+    <PreLinkEvent>
+      <Command>ping 127.0.0.1 -n 6 &gt; nul</Command>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>Win32;NDEBUG;_WINDOWS;_USRDLL;CAPTUREMANAGER_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AssemblerOutput>AssemblyAndSourceCode</AssemblerOutput>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ModuleDefinitionFile>Main.def</ModuleDefinitionFile>
+      <ImportLibrary>$(IntermediateOutputPath)$(TargetName).lib</ImportLibrary>
+      <ProgramDatabaseFile>$(IntermediateOutputPath)$(TargetName).pdb</ProgramDatabaseFile>
+    </Link>
+    <PostBuildEvent>
+      <Command>mkdir "$(SolutionDir)$(ProjectName)SDK-$(Version_Major).$(Version_Minor).$(Version_Patch)-$(Add_Label)\$(PlatformShortName)" 
+mkdir "$(SolutionDir)Bin\$(PlatformShortName)\$(ConfigurationName)" 
+copy "$(TargetPath)" "$(SolutionDir)Bin\$(PlatformShortName)\$(ConfigurationName)\$(TargetName)$(TargetExt)"
+copy "$(TargetPath)" "$(SolutionDir)$(ProjectName)SDK-$(Version_Major).$(Version_Minor).$(Version_Patch)-$(Add_Label)\$(PlatformShortName)\$(TargetName)$(TargetExt)"
+"$(ProjectDir)Tools\Post-Build.bat"</Command>
+      <Message>Auto increment build number</Message>
+    </PostBuildEvent>
+    <ResourceCompile>
+      <Culture>0x0c09</Culture>
+      <AdditionalIncludeDirectories>$(OutDir)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <PreBuildEvent>
+      <Command>ping 127.0.0.1 -n 6 &gt; nul</Command>
+    </PreBuildEvent>
+    <PreLinkEvent>
+      <Command>ping 127.0.0.1 -n 6 &gt; nul</Command>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="CommercialConfig.h" />
+    <ClInclude Include="Libraries.h" />
+    <ClInclude Include="Version.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Main.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AudioEndpointCapture\AudioEndpointCapture.vcxproj">
+      <Project>{e7d71893-982a-4ddf-ac69-61b4378050da}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\AudioRendererManager\AudioRendererManager.vcxproj">
+      <Project>{f1684ee7-82ca-4a26-ad86-cc0d02431940}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\AvrtManager\AvrtManager.vcxproj">
+      <Project>{3fecf0a1-a98c-473b-a553-94c8b0a91524}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\BaseConfigManager\BaseConfigManager.vcxproj">
+      <Project>{111dbbe8-ca07-46f1-aa1d-f1559a57947c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\CaptureDeviceManager\CaptureDeviceManager.vcxproj">
+      <Project>{111c776e-0f6a-4d6a-bf5a-f43f7e85d4a6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\CaptureInvoker\CaptureInvoker.vcxproj">
+      <Project>{dcc7314d-5315-4f22-b0cb-fb301688d388}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\CaptureManagerBroker\CaptureManagerBroker.vcxproj">
+      <Project>{48dfd6a1-d0ba-493c-a772-1721545b1962}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\CaptureSourceManager\CaptureSourceManager.vcxproj">
+      <Project>{b1893756-4e81-4a83-b1ea-0bd1377887f5}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\CaptureSource\CaptureSource.vcxproj">
+      <Project>{aa6850dc-5949-4ffb-bd46-195bbfa6d9dc}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\COMServer\COMServer.vcxproj">
+      <Project>{f02e2804-0f3e-4403-ae83-f2063670b165}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\ConfigManager\ConfigManager.vcxproj">
+      <Project>{f7f4863b-b844-44a4-8cd5-3999a38e9186}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\CPUDetection\CPUDetection.vcxproj">
+      <Project>{950f4622-268d-4afd-8856-980ebfe4adb0}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\CustomisedAudioResampler\CustomisedAudioResampler.vcxproj">
+      <Project>{7432d6ed-8c95-455f-b043-48e27e8c62f9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\CustomisedColorConvert\CustomisedColorConvert.vcxproj">
+      <Project>{ec72e6e9-4258-4972-862d-0aed74a22670}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\CustomisedMediaPipelineProcessor\CustomisedMediaPipelineProcessor.vcxproj">
+      <Project>{a1651dfb-a967-4a92-b1fe-c23c416093f1}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\CustomisedMediaSession\CustomisedMediaSession.vcxproj">
+      <Project>{a2f3c3ce-1fd3-4c91-bb9f-a98469274173}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\CustomisedMixerNode\CustomisedMixerNode.vcxproj">
+      <Project>{9095ed25-8716-4f86-a5a3-31622454528e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\CustomisedPresentationClock\CustomisedPresentationClock.vcxproj">
+      <Project>{8044ebc0-bac5-4c24-b631-bc6f6aff40a7}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\CustomisedTeeNode\CustomisedTeeNode.vcxproj">
+      <Project>{0e389c4c-f3d0-4b94-a7d7-5205118682e3}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\DataParser\DataParser.vcxproj">
+      <Project>{43b26376-e8a7-465f-a091-6b854ec64619}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\DirectShowCaptureProcessor\DirectShowCaptureProcessor.vcxproj">
+      <Project>{76eaf0b5-bf44-41aa-994a-925cede2bf0c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\DirectXManager\DirectXManager.vcxproj">
+      <Project>{14805371-1e3b-4c7c-b19e-6b14c179ffba}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\DMOManager\DMOManager.vcxproj">
+      <Project>{4502182d-10c4-4c3d-9d05-1e442e7674ca}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\DwmManager\DwmManager.vcxproj">
+      <Project>{79c6c476-b493-4b9f-9312-132f7c0c1472}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\EncoderManager\EncoderManager.vcxproj">
+      <Project>{21005df9-21a6-4cea-9b0b-7de553429014}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\EVRMultiSink\EVRMultiSink.vcxproj">
+      <Project>{dfd129f0-9ea4-4837-8858-b8ce1d9fc116}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\HorizontMirroring\HorizontMirroring.vcxproj">
+      <Project>{2d9f5151-e71c-45b4-95f8-279dfdbd6eaf}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\LogPrintOut\LogPrintOut.vcxproj">
+      <Project>{b3a7cecf-8505-408e-b122-9dc5df916776}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\MCSSManager\MCSSManager.vcxproj">
+      <Project>{ab0fec94-186e-4884-bca5-f51f2145e961}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\MediaFoundationManager\MediaFoundationManager.vcxproj">
+      <Project>{9983ff0e-2d0c-4258-8469-740268dfbed4}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\MemoryManager\MemoryManager.vcxproj">
+      <Project>{79eca641-9376-46ef-a0ea-7c06f92725b1}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\OutputNodeManager\OutputNodeManager.vcxproj">
+      <Project>{703dbcc4-8c35-4c16-aa14-d9a3672653d1}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\PugiXML\PugiXML.vcxproj">
+      <Project>{b8c408ad-e775-4ac6-91f3-dd906c436a5b}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\SampleAccumulatorNode\SampleAccumulatorNode.vcxproj">
+      <Project>{3ee78e5e-7e22-4998-8af6-4894f703f8e2}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\SampleGrabberCall\SampleGrabberCall.vcxproj">
+      <Project>{93ed7de4-7b1b-4019-8da9-398ae112f68b}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Scheduler\Scheduler.vcxproj">
+      <Project>{1d5b553c-fab3-4a4f-87ba-928b79b17552}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\ScreenCaptureProcessor\ScreenCaptureProcessor.vcxproj">
+      <Project>{c49e87b3-d373-4a17-a9b4-87b8cecebf18}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\SessionProcessorManager\SessionProcessorManager.vcxproj">
+      <Project>{a41fedca-7dbd-46e3-881d-4cfaa3d75653}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\StubTransform\StubTransform.vcxproj">
+      <Project>{6cd218b2-252d-40ea-8cc6-f411e75316c2}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Switcher\Switcher.vcxproj">
+      <Project>{7e666555-b2dc-4e8c-9f7f-ec33dac6d416}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TopologyResolver\TopologyResolver.vcxproj">
+      <Project>{8bdb0048-2789-4a86-8e20-ab0aa9edb6da}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\VideoRendererManager\VideoRendererManager.vcxproj">
+      <Project>{9dba5af0-2ac6-49b2-960a-75d89a25ca9c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\VideoSurfaceCopierManager\VideoSurfaceCopierManager.vcxproj">
+      <Project>{ec049968-0d7e-471f-b8a9-ad40eea0f15e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\WebCamControls\WebCamControls.vcxproj">
+      <Project>{ed2a829e-967c-4003-977b-6665546d324c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\WinmmManager\WinmmManager.vcxproj">
+      <Project>{1b720335-5529-4d71-b06d-a233348ab24d}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

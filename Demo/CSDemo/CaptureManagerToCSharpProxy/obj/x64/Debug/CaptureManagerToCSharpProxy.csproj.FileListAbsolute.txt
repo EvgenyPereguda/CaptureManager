@@ -1,0 +1,8 @@
+C:\Users\xirex\OneDrive\Documents\capturemanager\CaptureManager-Freeware\CaptureManager\Demo\CSDemo\CaptureManagerToCSharpProxy\obj\x64\Debug\CaptureManagerToCSharpProxy.csproj.AssemblyReference.cache
+C:\Users\xirex\OneDrive\Documents\capturemanager\CaptureManager-Freeware\CaptureManager\Demo\CSDemo\CaptureManagerToCSharpProxy\obj\x64\Debug\CaptureManagerToCSharpProxy.csproj.ResolveComReference.cache
+C:\Users\xirex\OneDrive\Documents\capturemanager\CaptureManager-Freeware\CaptureManager\Demo\CSDemo\CaptureManagerToCSharpProxy\obj\x64\Debug\CaptureManagerToCSharpProxy.csproj.CoreCompileInputs.cache
+C:\Users\xirex\OneDrive\Documents\capturemanager\CaptureManager-Freeware\CaptureManager\Demo\CSDemo\CaptureManagerToCSharpProxy\bin\x64\Debug\CaptureManagerToCSharpProxy.dll
+C:\Users\xirex\OneDrive\Documents\capturemanager\CaptureManager-Freeware\CaptureManager\Demo\CSDemo\CaptureManagerToCSharpProxy\bin\x64\Debug\CaptureManagerToCSharpProxy.pdb
+C:\Users\xirex\OneDrive\Documents\capturemanager\CaptureManager-Freeware\CaptureManager\Demo\CSDemo\CaptureManagerToCSharpProxy\obj\x64\Debug\Interop.CaptureManagerLibrary.dll
+C:\Users\xirex\OneDrive\Documents\capturemanager\CaptureManager-Freeware\CaptureManager\Demo\CSDemo\CaptureManagerToCSharpProxy\obj\x64\Debug\CaptureManagerToCSharpProxy.dll
+C:\Users\xirex\OneDrive\Documents\capturemanager\CaptureManager-Freeware\CaptureManager\Demo\CSDemo\CaptureManagerToCSharpProxy\obj\x64\Debug\CaptureManagerToCSharpProxy.pdb

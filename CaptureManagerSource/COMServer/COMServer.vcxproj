@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F02E2804-0F3E-4403-AE83-F2063670B165}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>COMServer</RootNamespace>
+    <WindowsTargetPlatformVersion>$(DefaultWindowsSDKVersion)</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>$(DefaultPlatformToolset)</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>$(DefaultPlatformToolset)</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>$(DefaultPlatformToolset)</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>$(DefaultPlatformToolset)</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(SolutionDir)CaptureManagerSource\CaptureManager\VersionPropertySheet.props" />
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(SolutionDir)CaptureManagerSource\CaptureManager\VersionPropertySheet.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(SolutionDir)CaptureManagerSource\CaptureManager\VersionPropertySheet.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(SolutionDir)CaptureManagerSource\CaptureManager\VersionPropertySheet.props" />
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>Win32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AssemblerOutput>AssemblyAndSourceCode</AssemblerOutput>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(OutDir)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Midl>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>$(SolutionName).tlb</TypeLibraryName>
+      <OutputDirectory>$(OutDir)</OutputDirectory>
+    </Midl>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PreLinkEvent>
+      <Command>
+      </Command>
+    </PreLinkEvent>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>Win32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(OutDir)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Midl>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>$(SolutionName).tlb</TypeLibraryName>
+      <OutputDirectory>$(OutDir)</OutputDirectory>
+    </Midl>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <PreLinkEvent>
+      <Command>
+      </Command>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>Win32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>$(OutDir)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Midl>
+      <TypeLibraryName>$(SolutionName).tlb</TypeLibraryName>
+      <OutputDirectory>$(OutDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Command>mkdir "$(SolutionDir)CaptureManagerSDK-$(Version_Major).$(Version_Minor).$(Version_Patch)-$(Add_Label)\CaptureManagerTypeInfo" 
+copy "$(OutDir)CaptureManagerTypeInfo.h" "$(SolutionDir)CaptureManagerSDK-$(Version_Major).$(Version_Minor).$(Version_Patch)-$(Add_Label)\CaptureManagerTypeInfo\CaptureManagerTypeInfo.h"
+copy "$(OutDir)CaptureManagerTypeInfo_i.c" "$(SolutionDir)CaptureManagerSDK-$(Version_Major).$(Version_Minor).$(Version_Patch)-$(Add_Label)\CaptureManagerTypeInfo\CaptureManagerTypeInfo_i.c"</Command>
+    </PostBuildEvent>
+    <PreLinkEvent />
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>Win32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AssemblerOutput>AssemblyAndSourceCode</AssemblerOutput>
+      <AdditionalIncludeDirectories>$(OutDir)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Midl>
+      <TypeLibraryName>$(SolutionName).tlb</TypeLibraryName>
+      <OutputDirectory>$(OutDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Command>mkdir "$(SolutionDir)CaptureManagerSDK-$(Version_Major).$(Version_Minor).$(Version_Patch)-$(Add_Label)\CaptureManagerTypeInfo" 
+copy "$(OutDir)CaptureManagerTypeInfo.h" "$(SolutionDir)CaptureManagerSDK-$(Version_Major).$(Version_Minor).$(Version_Patch)-$(Add_Label)\CaptureManagerTypeInfo\CaptureManagerTypeInfo.h"
+copy "$(OutDir)CaptureManagerTypeInfo_i.c" "$(SolutionDir)CaptureManagerSDK-$(Version_Major).$(Version_Minor).$(Version_Patch)-$(Add_Label)\CaptureManagerTypeInfo\CaptureManagerTypeInfo_i.c"</Command>
+    </PostBuildEvent>
+    <PreLinkEvent>
+      <Command>
+      </Command>
+    </PreLinkEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AudioCaptureProcessorProxy.cpp" />
+    <ClCompile Include="AudioMixerControl.cpp" />
+    <ClCompile Include="ByteStreamSinkFactory.cpp" />
+    <ClCompile Include="ClassFactory.cpp" />
+    <ClCompile Include="CoCaptureManager.cpp" />
+    <ClCompile Include="CoCaptureManagerClassFactory.cpp" />
+    <ClCompile Include="CoLogPrintOut.cpp" />
+    <ClCompile Include="CoLogPrintOutClassFactory.cpp" />
+    <ClCompile Include="CurrentMediaType.cpp" />
+    <ClCompile Include="EncoderControl.cpp" />
+    <ClCompile Include="EncoderNodeFactory.cpp" />
+    <ClCompile Include="EVRMultiSinkFactory.cpp" />
+    <ClCompile Include="EVRSinkFactory.cpp" />
+    <ClCompile Include="EVRStreamControl.cpp" />
+    <ClCompile Include="FileSinkFactory.cpp" />
+    <ClCompile Include="InitilaizeCaptureSource.cpp" />
+    <ClCompile Include="MediaTypeParser.cpp" />
+    <ClCompile Include="MFEVRMultiSinkFactory.cpp" />
+    <ClCompile Include="MixerNodeFactory.cpp" />
+    <ClCompile Include="RegisterManager.cpp" />
+    <ClCompile Include="RenderingControl.cpp" />
+    <ClCompile Include="SampleAccumulatorNodeFactory.cpp" />
+    <ClCompile Include="SampleGrabberCallbackSinkFactory.cpp" />
+    <ClCompile Include="SampleGrabberCallSinkFactory.cpp" />
+    <ClCompile Include="SARSinkFactory.cpp" />
+    <ClCompile Include="SARVolumeControl.cpp" />
+    <ClCompile Include="Session.cpp" />
+    <ClCompile Include="SessionControl.cpp" />
+    <ClCompile Include="SinkCollection.cpp" />
+    <ClCompile Include="SinkControl.cpp" />
+    <ClCompile Include="SourceControl.cpp" />
+    <ClCompile Include="SpreaderNodeFactory.cpp" />
+    <ClCompile Include="StreamControl.cpp" />
+    <ClCompile Include="StrideForBitmap.cpp" />
+    <ClCompile Include="SwitcherControl.cpp" />
+    <ClCompile Include="SwitcherNodeFactory.cpp" />
+    <ClCompile Include="VersionControl.cpp" />
+    <ClCompile Include="VideoCaptureProcessorProxy.cpp" />
+    <ClCompile Include="VideoMixerControl.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AudioCaptureProcessorProxy.h" />
+    <ClInclude Include="AudioMixerControl.h" />
+    <ClInclude Include="BaseDispatch.h" />
+    <ClInclude Include="ByteStreamSinkFactory.h" />
+    <ClInclude Include="ClassFactory.h" />
+    <ClInclude Include="CoCaptureManager.h" />
+    <ClInclude Include="CoCaptureManagerClassFactory.h" />
+    <ClInclude Include="CoLogPrintOut.h" />
+    <ClInclude Include="CoLogPrintOutClassFactory.h" />
+    <ClInclude Include="CurrentMediaType.h" />
+    <ClInclude Include="EncoderControl.h" />
+    <ClInclude Include="EncoderNodeFactory.h" />
+    <ClInclude Include="EVRMultiSinkFactory.h" />
+    <ClInclude Include="EVRSinkFactory.h" />
+    <ClInclude Include="EVRStreamControl.h" />
+    <ClInclude Include="FileSinkFactory.h" />
+    <ClInclude Include="IContainer.h" />
+    <ClInclude Include="InitilaizeCaptureSource.h" />
+    <ClInclude Include="MediaTypeParser.h" />
+    <ClInclude Include="MFEVRMultiSinkFactory.h" />
+    <ClInclude Include="MixerNodeFactory.h" />
+    <ClInclude Include="RegisterManager.h" />
+    <ClInclude Include="RenderingControl.h" />
+    <ClInclude Include="SampleAccumulatorNodeFactory.h" />
+    <ClInclude Include="SampleGrabberCallbackSinkFactory.h" />
+    <ClInclude Include="SampleGrabberCallSinkFactory.h" />
+    <ClInclude Include="SARSinkFactory.h" />
+    <ClInclude Include="SARVolumeControl.h" />
+    <ClInclude Include="Session.h" />
+    <ClInclude Include="SessionControl.h" />
+    <ClInclude Include="SinkCollection.h" />
+    <ClInclude Include="SinkControl.h" />
+    <ClInclude Include="SourceControl.h" />
+    <ClInclude Include="SpreaderNodeFactory.h" />
+    <ClInclude Include="StreamControl.h" />
+    <ClInclude Include="StrideForBitmap.h" />
+    <ClInclude Include="SwitcherControl.h" />
+    <ClInclude Include="SwitcherNodeFactory.h" />
+    <ClInclude Include="VersionControl.h" />
+    <ClInclude Include="VideoCaptureProcessorProxy.h" />
+    <ClInclude Include="VideoMixerControl.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="CaptureManagerTypeInfo.idl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

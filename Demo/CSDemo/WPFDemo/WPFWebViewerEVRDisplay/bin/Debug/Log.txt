@@ -1,0 +1,4 @@
+INFO_LEVEL: ***** CAPTUREMANAGER SDK 1.23.0 Freeware - Jul 11 2023 (Author: Evgeny Pereguda) *****
+
+INFO_LEVEL: MediaFoundationManager: Media Foundation is initialized!!!
+INFO_LEVEL: DMOManager: DMO is initialized!!!

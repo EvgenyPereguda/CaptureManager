@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFRtspServer", "WPFRtspServer\WPFRtspServer.csproj", "{D6430557-CFA0-4A45-9C4F-369F3DF8665A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTSP", "RTSP\RTSP.csproj", "{0AD96152-EB0C-4F31-B4F4-583CE88A5046}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D6430557-CFA0-4A45-9C4F-369F3DF8665A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6430557-CFA0-4A45-9C4F-369F3DF8665A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6430557-CFA0-4A45-9C4F-369F3DF8665A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6430557-CFA0-4A45-9C4F-369F3DF8665A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AD96152-EB0C-4F31-B4F4-583CE88A5046}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AD96152-EB0C-4F31-B4F4-583CE88A5046}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AD96152-EB0C-4F31-B4F4-583CE88A5046}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AD96152-EB0C-4F31-B4F4-583CE88A5046}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

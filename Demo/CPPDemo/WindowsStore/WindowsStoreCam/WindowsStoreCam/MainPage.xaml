@@ -1,0 +1,137 @@
+﻿<Page
+    x:Class="WindowsStoreCam.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WindowsStoreCam"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:photo="using:PhotoDisplayComponent"
+    mc:Ignorable="d" Loaded="Page_Loaded">
+    
+    <Page.Resources>
+
+        <Style x:Key="PanelCheckBoxStyle" TargetType="CheckBox">
+            <!--<Setter Property="SnapsToDevicePixels" Value="true"/>-->
+            <!--<Setter Property="Background" Value="White"/>-->
+            <Setter Property="BorderBrush" Value="Red"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="CheckBox">
+                        <Border>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Path VerticalAlignment="Top" Margin="0,0,-1,0" Data="M 10 30 L 0 30 10 0 10 0" Grid.Column="0" StrokeThickness="1" Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}"/>
+                                <Path VerticalAlignment="Top" Margin="0,0,0,0" Data="M 0 0 L 10 30 0 30" Grid.Column="2" StrokeThickness="1" Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}"/>
+                                
+                                <Border Margin="0,0,0,0.5" Background="{TemplateBinding Background}" BorderThickness="0,1,0,1" BorderBrush="{TemplateBinding BorderBrush}" Grid.Column="1" >
+                                </Border>
+                                <ContentPresenter Grid.Column="1" HorizontalAlignment="Center" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"  />
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <!--<Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource StandardMouseOverBrush}"/>
+                </Trigger>
+            </Style.Triggers>-->
+        </Style>
+    </Page.Resources>
+    <Grid x:Name="mGrid">
+        <Grid x:Name="mMainGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ContentPresenter x:Name="mBackContentPresenter" Grid.Column="0" Grid.ColumnSpan="2" />
+            <StackPanel Margin="10, 40, 10, 0" Opacity="0.75" Orientation="Vertical" x:Name="mCameraStack" Grid.Column="0">
+                <ListBox BorderBrush="White" BorderThickness="0" SelectionChanged="mCameraListBox_SelectionChanged" FontSize="15" x:Name="mCameraListBox" >
+                </ListBox>
+            </StackPanel>
+
+
+            <Canvas VerticalAlignment="Bottom" Grid.Column="1" FlowDirection="RightToLeft" HorizontalAlignment="Right">
+                <Grid Canvas.Top="-40" x:Name="mForgrownGrid" Canvas.Left="5" MaxHeight="300" MaxWidth="300" Width="300" 
+                VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                    <Grid.Resources>
+                        <Storyboard Completed="Storyboard_Completed_1" x:Key="riseBtn"
+            AutoReverse="False">
+                            <DoubleAnimation x:Name="mRiseAnim" Storyboard.TargetName="mForgrownGrid"
+                                     Storyboard.TargetProperty="(Canvas.Top)"
+                                     EnableDependentAnimation="True"
+                                     To="-40" Duration="0:0:0.25" />
+
+                        </Storyboard>
+                        <Storyboard Completed="Storyboard_Completed_1" x:Key="downBtn"
+            AutoReverse="False">
+                            <DoubleAnimation Storyboard.TargetName="mForgrownGrid"
+                                     Storyboard.TargetProperty="(Canvas.Top)"
+                                     To="-40" Duration="0:0:0.25" />
+
+                        </Storyboard>
+                    </Grid.Resources>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <CheckBox Unchecked="mCheckBtn_Unchecked"  Checked="mCheckBtn_Checked" Click="mCheckBtn_Click" x:Name="mCheckBtn" Style="{StaticResource PanelCheckBoxStyle}" >open
+      
+                    </CheckBox>
+                    <Border Grid.Row="1" BorderBrush="Red" BorderThickness="2">
+                        <ContentPresenter Tapped="mFrontContentPresenter_Tapped" x:Name="mFrontContentPresenter" >
+                        </ContentPresenter>
+                    </Border>
+                </Grid>
+            </Canvas>
+
+        </Grid>
+        <Canvas x:Name="mCanvas" Width="{Binding ElementName=mGrid, Path=ActualWidth}" Height="{Binding
+             ElementName=mGrid, Path=ActualHeight}" HorizontalAlignment="Left"  VerticalAlignment="Top">
+            <Canvas.Resources>
+                <Storyboard Completed="Storyboard_Completed" x:Key="storyboard"
+            AutoReverse="False">
+                    <DoubleAnimation Storyboard.TargetName="mAnimContentPresenter"
+                                     Storyboard.TargetProperty="(Canvas.Left)"
+                                     To="0" Duration="0:0:0.5" />
+
+                    <DoubleAnimation Storyboard.TargetName="mAnimContentPresenter"
+                                      Storyboard.TargetProperty="(Canvas.Top)"
+                                      To="0" Duration="0:0:0.5" />
+
+                    <DoubleAnimation Storyboard.TargetName="mPlaneProjection"
+                                      Storyboard.TargetProperty="RotationY"
+                                      From="0" To="360" Duration="0:0:0.5" />
+
+
+
+                    <DoubleAnimation Storyboard.TargetName="mAnimContentPresenter"
+                                     Storyboard.TargetProperty="Height"
+                                     EnableDependentAnimation="True"
+                                     To="{Binding ElementName=mCanvas, Path=Height}"
+                                     Duration="0:0:0.5" />
+
+                    <DoubleAnimation Storyboard.TargetName="mAnimContentPresenter"
+                                     Storyboard.TargetProperty="Width"
+                                     EnableDependentAnimation="True"
+                                     To="{Binding ElementName=mCanvas, Path=Width}"
+                                     Duration="0:0:0.5" />
+
+
+                </Storyboard>
+            </Canvas.Resources>
+
+
+           <ContentPresenter Canvas.Left="0" Canvas.Top="0"
+                              x:Name="mAnimContentPresenter" >
+                <ContentPresenter.Projection>
+                    <PlaneProjection x:Name="mPlaneProjection"/>
+                </ContentPresenter.Projection>
+            </ContentPresenter>
+        </Canvas>
+    </Grid>
+</Page>

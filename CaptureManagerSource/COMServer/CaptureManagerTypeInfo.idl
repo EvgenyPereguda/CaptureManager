@@ -1,0 +1,1361 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	uuid(5CA95537-3733-441D-B9F4-1F38CCFC56D3),
+	v1_enum,
+	helpstring("Enum for ILogPrintOutControl log levels.")
+]
+typedef enum LogLevel
+{
+	INFO_LEVEL = 0,
+	ERROR_LEVEL = INFO_LEVEL + 1
+} LogLevel;
+
+[
+	uuid(A492B132-CF20-4562-BAC4-290EB4D0ADA4),
+	v1_enum,
+	helpstring("Enum for WebCam parametr flag.")
+]
+typedef enum WebCamParametrFlag
+{
+	Auto = 1,
+	Manual = 2
+} WebCamParametrFlag;
+
+[
+	uuid(437C2465-72D9-436E-9B51-327EF76DB4A5),
+	v1_enum,
+	helpstring("Enum for WebCam parametrs.")
+]
+typedef enum WebCamParametr
+{
+
+	BRIGHTNESS = 0,
+	CONTRAST = BRIGHTNESS + 1,
+	HUE = CONTRAST + 1,
+	SATURATION = HUE + 1,
+	SHARPNESS = SATURATION + 1,
+	GAMMA = SHARPNESS + 1,
+	COLORENABLE = GAMMA + 1,
+	WHITRBALANCE = COLORENABLE + 1,
+	BACKLIGHTCOMPENSATION = WHITRBALANCE + 1,
+	GAIN = BACKLIGHTCOMPENSATION + 1,
+
+
+	PAN = GAIN + 1,
+	TILT = PAN + 1,
+	ROLL = TILT + 1,
+	ZOOM = ROLL + 1,
+	EXPOSURE = ZOOM + 1,
+	IRIS = EXPOSURE + 1,
+	FOCUS = IRIS + 1
+
+} WebCamParametr;
+
+[
+	uuid(DFAE427C-9493-4022-8FD2-D0280B9A422C),
+	v1_enum,
+	helpstring("Enum for Session Callback Event Code.")
+]
+typedef enum SessionCallbackEventCode
+{
+	UnknownEvent = 0,
+	Error = UnknownEvent + 1,
+	Status_Error = Error + 1,
+	Execution_Error = Status_Error + 1,
+	ItIsReadyToStart = Execution_Error + 1,
+	ItIsStarted = ItIsReadyToStart + 1,
+	ItIsPaused = ItIsStarted + 1,
+	ItIsStopped = ItIsPaused + 1,
+	ItIsEnded = ItIsStopped + 1,
+	ItIsClosed = ItIsEnded + 1,
+	VideoCaptureDeviceRemoved = ItIsClosed + 1
+
+} SessionCallbackEventCode;
+
+[
+	object,
+	uuid(73B67834-E7BD-40B7-9730-8C13BF098B9F),
+	oleautomation,
+	helpstring("Control interface for controlling of printing of the log information."),
+	dual
+]
+interface ILogPrintOutControl : IDispatch
+{
+	[
+		helpstring("Set state of print out of log."),
+		id(1)
+	]
+	HRESULT setVerbose(
+		[in] DWORD aLevelType,
+		[in] BSTR aFilePath,
+		[in] boolean aState);
+
+	[
+		helpstring("Add print out destination."),
+		id(2)
+	]
+	HRESULT addPrintOutDestination(
+		[in] DWORD aLevelType,
+		[in] BSTR aFilePath);
+
+	[
+		helpstring("Remove print out destination."),
+		id(3)
+	]
+	HRESULT removePrintOutDestination(
+		[in] DWORD aLevelType,
+		[in] BSTR aFilePath);
+
+};
+
+[
+	object,
+	uuid(64476D35-6915-4522-A548-0AE947CB2FA7),
+	oleautomation,
+	helpstring("Control interface for controlling of printing of the log information."),
+	dual
+]
+interface ILogPrintOutCallbackControl : IDispatch
+{
+	[
+		helpstring("Get IConnectionPointContainer interface."),
+		id(1)
+	]
+	HRESULT getIConnectionPointContainer(
+		[in] REFIID aREFIID,
+		[out] IUnknown** aPtrPtrControl);
+
+	[
+		helpstring("Set state of print out of log."),
+		id(2)
+	]
+	HRESULT setVerbose(
+		[in] DWORD aLevelType,
+		[in] boolean aState);
+};
+
+[
+	object,
+	uuid(251E71F6-8C02-475F-B300-216D560426B2),
+	oleautomation,
+	helpstring("Interface for processing callback of log.")
+]
+interface ILogPrintOutCallback : IUnknown
+{
+	[
+		helpstring("Method for callback invoking.")
+	]
+	HRESULT invoke(
+		[in] DWORD aLevelType,
+		[in] BSTR aPtrLogString);
+};
+
+[
+	object,
+	uuid(1276CC17-BCA8-4200-87BB-7180EF562447),
+	oleautomation,
+	helpstring("Interface for controlling of sources."),
+	dual
+]
+interface ISourceControl : IDispatch
+{
+	[
+		helpstring("Get collection of sources in XML form."),
+		id(1)
+	]
+	HRESULT getCollectionOfSources(
+		[in, out] BSTR* aPtrPtrXMLstring);
+
+	[
+		helpstring("Get pointer on output media type of the source."),
+		id(2)
+	]
+	HRESULT getSourceOutputMediaType(
+		[in] BSTR aSymbolicLink,
+		[in] DWORD aIndexStream,
+		[in] DWORD aIndexMediaType,
+		[out] IUnknown** aPtrPtrOutputMediaType);
+
+	[
+		helpstring("Create source node from defined source settings."),
+		id(3)
+	]
+	HRESULT createSourceNode(
+		[in] BSTR aSymbolicLink,
+		[in] DWORD aIndexStream,
+		[in] DWORD aIndexMediaType,
+		[out] IUnknown** aPtrPtrTopologyNode);
+
+	[
+		helpstring("Create source node from defined source settings with down stream connection."),
+		id(4)
+	]
+	HRESULT createSourceNodeWithDownStreamConnection(
+		[in] BSTR aSymbolicLink,
+		[in] DWORD aIndexStream,
+		[in] DWORD aIndexMediaType,
+		[in] IUnknown* aPtrDownStreamTopologyNode,
+		[out] IUnknown** aPtrPtrTopologyNode);
+
+	[
+		helpstring("Get MediaSource by Symbolic Link."),
+		id(5)
+	]
+	HRESULT createSource(
+		[in] BSTR aSymbolicLink,
+		[out] IUnknown** aPtrPtrMediaSource);
+
+	[
+		helpstring("Get MediaSource by definded interface."),
+		id(6)
+	]
+	HRESULT createSourceFromCaptureProcessor(
+		[in] IUnknown* aPtrCaptureProcessor,
+		[out] IUnknown** aPtrPtrMediaSource);
+
+	[
+		helpstring("Get pointer on output media type from defined MediaSource and source settings."),
+		id(7)
+	]
+	HRESULT getSourceOutputMediaTypeFromMediaSource(
+		[in] IUnknown* aPtrMediaSource,
+		[in] DWORD aIndexStream,
+		[in] DWORD aIndexMediaType,
+		[out] IUnknown** aPtrPtrOutputMediaType);
+
+	[
+		helpstring("Create source node from defined MediaSource and source settings."),
+		id(8)
+	]
+	HRESULT createSourceNodeFromExternalSource(
+		[in] IUnknown* aPtrMediaSource,
+		[in] DWORD aIndexStream,
+		[in] DWORD aIndexMediaType,
+		[out] IUnknown** aPtrPtrTopologyNode);
+
+	[
+		helpstring("Create source node from defined MediaSource and source settings with down stream connection."),
+		id(9)
+	]
+	HRESULT createSourceNodeFromExternalSourceWithDownStreamConnection(
+		[in] IUnknown* aPtrMediaSource,
+		[in] DWORD aIndexStream,
+		[in] DWORD aIndexMediaType,
+		[in] IUnknown* aPtrDownStreamTopologyNode,
+		[out] IUnknown** aPtrPtrTopologyNode);
+
+	[
+		helpstring("Create control for the source."),
+		id(10)
+	]
+	HRESULT createSourceControl(
+		[in] BSTR aSymbolicLink,
+		[in] REFIID aREFIID,
+		[out] IUnknown** aPtrPtrControl);
+
+};
+
+[
+	object,
+	uuid(C6BA3732-197E-438B-8E73-277759A7B58F),
+	oleautomation,
+	helpstring("Control interface for controlling of sinks."),
+	dual
+]
+interface ISinkControl : IDispatch
+{
+	[
+		helpstring("Get collection of sinks in XML form."),
+		id(1)
+	]
+	HRESULT getCollectionOfSinks(
+		[out] BSTR* aPtrPtrXMLstring);
+
+	[
+		helpstring("Create sink factory."),
+		id(2)
+	]
+	HRESULT createSinkFactory(
+		[in] REFGUID aRefContainerTypeGUID,
+		[in] REFIID aREFIID,
+		[out] IUnknown** aPtrPtrSink);
+};
+
+[
+	object,
+	uuid(D6E342E3-7DDD-4858-AB91-4253643864C2),
+	oleautomation,
+	helpstring("Interface for creating of file sink output nodes."),
+	dual
+]
+interface IFileSinkFactory : IDispatch
+{
+	[
+		helpstring("Create output nodes of container by file name."),
+		id(1)
+	]
+	HRESULT createOutputNodes(
+		[in] VARIANT aArrayPtrCompressedMediaTypes,
+		[in] BSTR aPtrFileName,
+		[out] VARIANT* aPtrArrayPtrTopologyOutputNodes);
+};
+
+[
+	object,
+	uuid(759D24FF-C5D6-4B65-8DDF-8A2B2BECDE39),
+	oleautomation,
+	helpstring("Interface of factory for creating of sample grabber call sink output node."),
+	dual
+]
+interface ISampleGrabberCallSinkFactory : IDispatch
+{
+	[
+		helpstring("Create output node."),
+		id(1)
+	]
+	HRESULT createOutputNode(
+		[in] REFGUID aRefMajorType,
+		[in] REFGUID aRefSubType,
+		[in] DWORD aSampleByteSize,
+		[in] REFIID aREFIID,
+		[out] IUnknown** aPtrPtrISampleGrabberCall);
+};
+
+[
+	object,
+	uuid(118AD3F7-D9A3-4146-AB35-F16421DC995E),
+	oleautomation,
+	local,
+	helpstring("Interface of sample grabber call."),
+	dual
+]
+interface ISampleGrabberCall : IDispatch
+{
+	[
+		helpstring("Get grabbed sample data."),
+		id(1)
+	]
+
+	HRESULT readData(
+		[in] LPVOID aPtrData,
+		[out] DWORD* aByteSize);
+};
+
+[
+	object,
+	uuid(3D64C48E-EDA4-4EE1-8436-58B64DD7CF13),
+	oleautomation,
+	helpstring("Interface of factory for creating of sample grabber callback sink output node.")
+]
+interface ISampleGrabberCallbackSinkFactory : IUnknown
+{
+	[
+		helpstring("Create output node.")
+	]
+	HRESULT createOutputNode(
+		[in] REFGUID aRefMajorType,
+		[in] REFGUID aRefSubType,
+		[in] IUnknown* aPtrISampleGrabberCallback,
+		[out] IUnknown** aPtrPtrTopologyNode);
+};
+
+[
+	object,
+	uuid(C52F4DC9-BD3F-45FC-9839-1340AEFD25AF),
+	oleautomation,
+	local,
+	helpstring("Interface of sample grabber callback.")
+]
+interface ISampleGrabberCallback : IUnknown
+{
+	[
+		helpstring("Method for callback invoking"),
+		local
+	]
+	HRESULT invoke(
+		[in] REFGUID aGUIDMajorMediaType,
+		[in] DWORD aSampleFlags,
+		[in] LONGLONG aSampleTime,
+		[in] LONGLONG aSampleDuration,
+		[in] LPVOID aPtrSampleBuffer,
+		[in] DWORD aSampleSize);
+};
+
+[
+	object,
+	uuid(2F34AF87-D349-45AA-A5F1-E4104D5C458E),
+	oleautomation,
+	local,
+	helpstring("Interface of factory for creating of EVR output node."),
+	dual
+]
+interface IEVRSinkFactory : IDispatch
+{
+	[
+		helpstring("Create output node."),
+		id(1)
+	]
+	HRESULT createOutputNode(
+		[in] LPVOID aHWND,
+		[out] IUnknown **aPtrPtrTopologyNode);
+};
+
+[
+	object,
+	uuid(10E52132-A73F-4A9E-A91B-FE18C91D6837),
+	oleautomation,
+	local,
+	helpstring("Interface of factory for creating of EVR output nodes."),
+	dual
+]
+interface IEVRMultiSinkFactory : IDispatch
+{
+	[
+		helpstring("Create output nodes."),
+		id(1)
+	]
+	HRESULT createOutputNodes(
+		[in] LPVOID aHandle,
+		[in] IUnknown* aPtrUnkTarget,
+		[in] DWORD aOutputNodeAmount,
+		[out] VARIANT* aPtrArrayPtrTopologyOutputNodes);
+};
+
+[
+	object,
+	uuid(74F0DC2B-E470-4359-A1E7-467B521BDFE1),
+	oleautomation,
+	helpstring("Interface of parsing into XML form."),
+	dual
+]
+interface IMediaTypeParser : IDispatch
+{
+	[
+		helpstring("Parse MediaType into XML form."),
+		id(1)
+	]
+
+	HRESULT parse(
+		[in] IUnknown* aPtrMediaType,
+		[out] BSTR* aPtrPtrXMLstring);
+};
+
+[
+	object,
+	uuid(74D903C9-69E6-4FC7-BF7A-9F47605C52BE),
+	oleautomation,
+	helpstring("Interface for getting of stride for bitmap."),
+	dual
+]
+interface IStrideForBitmap : IDispatch
+{
+	[
+		helpstring("Get widthInBytes - stride of image"),
+		id(1)
+	]
+
+	HRESULT getStrideForBitmap(
+		[in] REFGUID aMFVideoFormat,
+		[in] DWORD aWidthInPixels,
+		[out] LONG* aPtrStride);
+};
+
+[
+	object,
+	uuid(E8F25B4A-8C71-4C9E-BD8C-82260DC4C21B),
+	oleautomation,
+	helpstring("Control interface for creating of stream control node factories."),
+	dual
+]
+interface IStreamControl : IDispatch
+{
+	[
+		helpstring("Get collection of stream control nodes in XML form."),
+		id(1)
+	]
+	HRESULT getCollectionOfStreamControlNodeFactories(
+		[out] BSTR* aPtrPtrXMLstring);
+
+	[
+		helpstring("Create a stream control node factory."),
+		id(2)
+	]
+	HRESULT createStreamControlNodeFactory(
+		[in] REFIID aREFIID,
+		[out] IUnknown** aPtrPtrStreamControlNodeFactory);
+};
+
+[
+	object,
+	uuid(85DFAAA1-4CC0-4A88-AE28-8F492E552CCA),
+	oleautomation,
+	helpstring("Interface of factory for creating of spreader node."),
+	dual
+]
+interface ISpreaderNodeFactory : IDispatch
+{
+	[
+		helpstring("Create a spreader node."),
+		id(1)
+	]
+
+	HRESULT createSpreaderNode(
+		[in] VARIANT aArrayPtrDownStreamTopologyNodes,
+		[out] IUnknown** aPtrPtrTopologySpreaderNode);
+};
+
+[
+	object,
+	uuid(B8187D19-EBFD-4F8D-80D9-A15EBA3B369C),
+	oleautomation,
+	helpstring("Interface of factory for creating of switcher node."),
+	dual
+]
+interface ISwitcherNodeFactory : IDispatch
+{
+	[
+		helpstring("Create a switcher node."),
+		id(1)
+	]
+
+	HRESULT createSwitcherNode(
+		[in] IUnknown *aPtrDownStreamTopologyNode,
+		[out] IUnknown** aPtrPtrTopologySwitcherNode);
+};
+
+[
+	object,
+	uuid(A213FD96-223C-479B-9EF4-F2864F5D001D),
+	oleautomation,
+	helpstring("Interface of factory for creating of mixer node."),
+	dual
+]
+interface IMixerNodeFactory : IDispatch
+{
+	[
+		helpstring("Create a mixer node."),
+		id(1)
+	]
+
+	HRESULT createMixerNodes(
+		[in] IUnknown *aPtrDownStreamTopologyNode,
+		[in] DWORD aInputNodeAmount,
+		[out] VARIANT* aPtrArrayPtrTopologyInputNodes);
+};
+
+[
+	object,
+	uuid(96223507-D8FF-4EC1-B125-71AA7F9726A4),
+	oleautomation,
+	helpstring("Control interface for creating of encoder node factories."),
+	dual
+]
+interface IEncoderControl : IDispatch
+{
+	[
+		helpstring("Get GUID collection of encoders in XML form."),
+		id(1)
+	]
+	HRESULT getCollectionOfEncoders(
+		[out] BSTR* aPtrPtrXMLstring);
+
+
+	[
+		helpstring("Get collection of compressed media types for the selected encoder in XML form."),
+		id(2)
+	]
+	HRESULT getMediaTypeCollectionOfEncoder(
+		[in] IUnknown *aPtrUncompressedMediaType,
+		[in] REFCLSID aRefEncoderCLSID,
+		[out] BSTR* aPtrPtrXMLstring);
+
+	[
+		helpstring("Create an encoder node factory."),
+		id(3)
+	]
+	HRESULT createEncoderNodeFactory(
+		[in] REFCLSID aRefEncoderCLSID,
+		[in] REFIID aREFIID,
+		[out] IUnknown** aPtrPtrEncoderNodeFactory);
+};
+
+[
+	object,
+	uuid(A56E11D8-D602-4792-8570-38C283FC0AA3),
+	oleautomation,
+	helpstring("Interface for creating of encoder node."),
+	dual
+]
+interface IEncoderNodeFactory : IDispatch
+{
+	[
+		helpstring("Create a compressed media type of related encoder."),
+		id(1)
+	]
+	HRESULT createCompressedMediaType(
+		[in] IUnknown *aPtrUncompressedMediaType,
+		[in] REFGUID aRefEncodingModeGUID,
+		[in] DWORD aEncodingModeValue,
+		[in] DWORD aIndexCompressedMediaType,
+		[out] IUnknown **aPtrPtrCompressedMediaType);
+
+	[
+		helpstring("Create an encoder node."),
+		id(2)
+	]
+	HRESULT createEncoderNode(
+		[in] IUnknown *aPtrUncompressedMediaType,
+		[in] REFGUID aRefEncodingModeGUID,
+		[in] DWORD aEncodingModeValue,
+		[in] DWORD aIndexCompressedMediaType,
+		[in] IUnknown *aPtrDownStreamNode,
+		[out] IUnknown **aPtrPtrEncoderNode);
+};
+
+[
+	object,
+	uuid(3BD92C4C-5E06-4901-AE0B-D97E3902EAFC),
+	helpstring("Control interface for controlling parameters of web cam.")
+]
+interface IWebCamControl : IDispatch
+{
+
+	[
+		helpstring("Get parametrs of the source."),
+		id(1)
+	]
+	HRESULT getCamParametrs(
+		[out] BSTR* aXMLstring);
+
+	[
+		helpstring("Get parametr of the source."),
+		id(2)
+	]
+	HRESULT getCamParametr(
+		[in] DWORD aParametrIndex,
+		[out] LONG* aCurrentValue,
+		[out] LONG* aMin,
+		[out] LONG* aMax,
+		[out] LONG* aStep,
+		[out] LONG* aDefault,
+		[out] LONG* aFlag);
+
+	[
+		helpstring("Set parametr to the source."),
+		id(3)
+	]
+	HRESULT setCamParametr(
+		[in] DWORD aParametrIndex,
+		[in] LONG aNewValue,
+		[in] LONG aFlag);
+};
+
+[
+	object,
+	uuid(2E891049-964A-4D08-8F36-95CE8CB0DE9B),
+	oleautomation,
+	helpstring("Interface for creating of byte stream sink output nodes.")
+]
+interface IByteStreamSinkFactory : IUnknown
+{
+	[
+		helpstring("Create output nodes of container by byte stream.")
+	]
+	HRESULT createOutputNodes(
+		[in] VARIANT aArrayPtrCompressedMediaTypes,
+		[in] IUnknown* aPtrByteStream,
+		[out] VARIANT* aPtrArrayPtrTopologyOutputNodes);
+};
+
+[
+	object,
+	uuid(D0C58520-A941-4C0F-81B0-3ED8A4DE11ED),
+	oleautomation,
+	helpstring("Control interface for creating of controlling of session."),
+	dual
+]
+interface ISessionControl : IDispatch
+{
+	[
+		helpstring("Create session of topology."),
+		id(1)
+	]
+	HRESULT createSession(
+		[in] VARIANT aArrayPtrSourceNodesOfTopology,
+		[in] REFIID aREFIID,
+		[out] IUnknown** aPtrPtrSession);
+};
+
+[
+	object,
+	uuid(742AC001-D1E0-40A8-8EFE-BA1A550F8805),
+	oleautomation,
+	helpstring("Control interface for controlling of session."),
+	dual
+]
+interface ISession : IDispatch
+{
+	[
+		helpstring("Start session which is referenced by session descriptor."),
+		id(1)
+	]
+	HRESULT startSession(
+		[in] LONGLONG aStartPositionInHundredNanosecondUnits,
+		[in] REFGUID aGUIDTimeFormat);
+
+	[
+		helpstring("Stop session which is referenced by session descriptor."),
+		id(2)
+	]
+	HRESULT stopSession();
+
+	[
+		helpstring("Pause session which is referenced by session descriptor."),
+		id(3)
+	]
+	HRESULT pauseSession();
+
+	[
+		helpstring("Close session which is referenced by session descriptor."),
+		id(4)
+	]
+	HRESULT closeSession();
+
+	[
+		helpstring("Get session descriptor which is referenced with this session."),
+		id(5)
+	]
+	HRESULT getSessionDescriptor([out]DWORD* aPtrSessionDescriptor);
+
+	[
+		helpstring("Get IConnectionPointContainer interface."),
+		id(6)
+	]
+	HRESULT getIConnectionPointContainer(
+		[in] REFIID aREFIID,
+		[out] IUnknown** aPtrPtrControl);
+};
+
+[
+	object,
+	uuid(522E9849-E3A8-4FD0-853F-97D9B02B0E72),
+	oleautomation,
+	helpstring("Interface for processing callback of session - start video device, stop video device, removing video device, etc.")
+]
+interface ISessionCallback : IUnknown
+{
+	[
+		helpstring("Method for callback invoking.")
+	]
+	HRESULT invoke(
+		[in]DWORD aCallbackEventCode,
+		[in]DWORD aSessionDescriptor);
+};
+
+[
+	object,
+	uuid(D4F5F10A-8F70-43CF-8CF1-EC331DA2F829),
+	oleautomation,
+	helpstring("Control interface for controlling of capturing."),
+	dual
+]
+interface ICaptureManagerControl : IDispatch
+{
+	[
+		helpstring("Create a control."),
+		id(1)
+	]
+	HRESULT createControl(
+		[in] REFIID aREFIID,
+		[out] IUnknown** aPtrPtrControl);
+
+	[
+		helpstring("Create a miscellaneous object."),
+		id(2)
+	]
+	HRESULT createMisc(
+		[in] REFIID aREFIID,
+		[out] IUnknown** aPtrPtrMisc);
+}
+
+[
+	object,
+	uuid(39DC3AEF-3B59-4C0D-A1B2-54BF2653C056),
+	oleautomation,
+	helpstring("Interface for controlling of current version."),
+	dual
+]
+interface IVersionControl : IDispatch
+{
+	[
+		helpstring("Method for getting of version."),
+		id(1)
+	]
+	HRESULT getVersion(
+		[out] DWORD* aPtrMAJOR,
+		[out] DWORD* aPtrMINOR,
+		[out] DWORD* aPtrPATCH,
+		[out] BSTR* aPtrPtrAdditionalLabel);
+
+	[
+		helpstring("Method for getting XML string format of version."),
+		id(2)
+	]
+	HRESULT getXMLStringVersion(
+		[out] BSTR* aPtrPtrXMLstring);
+
+	[
+		helpstring("Check of version."),
+		id(3)
+	]
+	HRESULT checkVersion(
+		[in] DWORD aMAJOR,
+		[in] DWORD aMINOR,
+		[in] DWORD aPATCH,
+		[out] boolean* aPtrResult);
+};
+
+[
+	object,
+	uuid(47F9883C-77B1-4A0B-9233-B3EAFA8F387E),
+	oleautomation,
+	helpstring("Interface for controlling of render stream."),
+	dual
+]
+interface IEVRStreamControl : IDispatch
+{
+	[
+		helpstring("Method for setting of render stream position."),
+		id(1)
+	]
+	HRESULT setPosition(
+		[in] IUnknown* aPtrEVROutputNode,
+		[in] FLOAT aLeft,
+		[in] FLOAT aRight,
+		[in] FLOAT aTop,
+		[in] FLOAT aBottom);
+
+	[
+		helpstring("Method for setting of render stream ZOrder."),
+		id(2)
+	]
+	HRESULT setZOrder(
+		[in] IUnknown* aPtrEVROutputNode,
+		[in] DWORD aZOrder);
+
+	[
+		helpstring("Method for getting of render stream position."),
+		id(3)
+	]
+	HRESULT getPosition(
+		[in] IUnknown* aPtrEVROutputNode,
+		[out] FLOAT* aPtrLeft,
+		[out] FLOAT* aPtrRight,
+		[out] FLOAT* aPtrTop,
+		[out] FLOAT* aPtrBottom);
+
+	[
+		helpstring("Method for getting of render stream ZOrder"),
+		id(4)
+	]
+	HRESULT getZOrder(
+		[in] IUnknown* aPtrEVROutputNode,
+		[out] DWORD* aPtrZOrder);
+
+	[
+		helpstring("Method for flushing of render stream."),
+		id(5)
+	]
+	HRESULT flush(
+		[in] IUnknown* aPtrEVROutputNode);
+
+	[
+		helpstring("Method for setting of source render stream position."),
+		id(6)
+	]
+	HRESULT setSrcPosition(
+		[in] IUnknown* aPtrEVROutputNode,
+		[in] FLOAT aLeft,
+		[in] FLOAT aRight,
+		[in] FLOAT aTop,
+		[in] FLOAT aBottom);
+
+	[
+		helpstring("Method for getting of source render stream position."),
+		id(7)
+	]
+	HRESULT getSrcPosition(
+		[in] IUnknown* aPtrEVROutputNode,
+		[out] FLOAT* aPtrLeft,
+		[out] FLOAT* aPtrRight,
+		[out] FLOAT* aPtrTop,
+		[out] FLOAT* aPtrBottom);
+
+	[
+		helpstring("Method for getting of source render stream filter collection."),
+		id(8)
+	]
+	HRESULT getCollectionOfFilters(
+		[in] IUnknown* aPtrEVROutputNode,
+		[out] BSTR* aPtrPtrXMLstring);
+
+	[
+		helpstring("Set parametr to the filter."),
+		id(9)
+	]
+	HRESULT setFilterParametr(
+		[in] IUnknown* aPtrEVROutputNode,
+		[in] DWORD aParametrIndex,
+		[in] LONG aNewValue,
+		[in] BOOL aIsEnabled);
+
+	[
+		helpstring("Method for getting of source render stream output feature collection."),
+		id(10)
+	]
+	HRESULT getCollectionOfOutputFeatures(
+		[in] IUnknown* aPtrEVROutputNode,
+		[out] BSTR* aPtrPtrXMLstring);
+
+	[
+		helpstring("Set parametr to the output feature."),
+		id(11)
+	]
+	HRESULT setOutputFeatureParametr(
+		[in] IUnknown* aPtrEVROutputNode,
+		[in] DWORD aParametrIndex,
+		[in] LONG aNewValue);
+
+};
+
+[
+	object,
+	uuid(23B3BCE7-3003-48E6-9FA3-9F5F8439F3DC),
+	oleautomation,
+	helpstring("Interface for initializing of capture source.")
+]
+interface IInitilaizeCaptureSource : IUnknown
+{
+	[
+		helpstring("Set presentation descriptor."),
+		id(1)
+	]
+	HRESULT setPresentationDescriptor(
+		[in] BSTR aXMLPresentationDescriptor);
+};
+
+[
+	object,
+	uuid(2835286D-C2AF-4A66-AEDA-3ABB8A244E86),
+	oleautomation,
+	helpstring("Interface for getting info about current media type.")
+]
+interface ICurrentMediaType : IUnknown
+{
+	[
+		helpstring("Get current media type index."),
+		id(1)
+	]
+	HRESULT getMediaTypeIndex(
+		[out] DWORD* aPtrMediaTypeIndex);
+
+	[
+		helpstring("Get current stream index."),
+		id(2)
+	]
+	HRESULT getStreamIndex(
+		[out] DWORD* aPtrStreamIndex);
+
+	[
+		helpstring("Get current stream index."),
+		id(3)
+	]
+	HRESULT getMediaType(
+		[out] IUnknown** aPtrMediaType);
+};
+
+[
+	object,
+	uuid(80561D39-612C-42AF-B866-5E2B2E6F39C7),
+	oleautomation,
+	local,
+	helpstring("Interface for setting of data to source.")
+]
+interface ISourceRequestResult : IUnknown
+{
+	[
+		helpstring("Set captured data to the source."),
+		id(1)
+	]
+	HRESULT setData(
+		[in] LPVOID aPtrData,
+		[in] DWORD aByteSize,
+		[in] BOOL aIsKeyFrame);
+
+	[
+		helpstring("Get current stream index."),
+		id(2)
+	]
+	HRESULT getStreamIndex(
+		[out] DWORD* aPtrStreamIndex);
+};
+
+
+[
+	object,
+	uuid(F6591EF6-535E-4A83-BE0B-87135B173C78),
+	oleautomation,
+	helpstring("Interface for customized capture stream processor.")
+]
+interface ICaptureProcessor : IUnknown
+{
+
+	[
+		helpstring("Start processor.")
+	]
+	HRESULT start(
+		[in] LONGLONG aStartPositionInHundredNanosecondUnits,
+		[in] REFGUID aGUIDTimeFormat);
+
+	[
+		helpstring("Stop processor.")
+	]
+	HRESULT stop();
+
+	[
+		helpstring("Pause processor.")
+	]
+	HRESULT pause();
+
+	[
+		helpstring("Shutdown processor.")
+	]
+	HRESULT shutdown();
+
+	[
+		helpstring("Initilaize processor.")
+	]
+	HRESULT initilaize(
+		[in]IUnknown* aPtrIInitilaizeCaptureSource);
+
+	[
+		helpstring("Set supported media type to capture processor.")
+	]
+	HRESULT setCurrentMediaType(
+		[in]IUnknown* aPtrICurrentMediaType);
+
+	[
+		helpstring("Get new sample of capture processor.")
+	]
+	HRESULT sourceRequest(
+		[in]IUnknown* aPtrISourceRequestResult);
+};
+
+[
+	object,
+	uuid(1CBCAF1C-1809-41DE-A728-23DBF86A6170),
+	oleautomation,
+	local,
+	helpstring("Interface for controlling of rendering.")
+]
+interface IRenderingControl : IDispatch
+{
+	[
+		helpstring("Enable rendering in CaptureManager."),
+		id(1)
+	]
+	HRESULT enableInnerRendering(
+		[in] IUnknown* aPtrEVROutputNode,
+		[in] BOOL aIsInnerRendering);
+
+	[
+		helpstring("Rendering to the target."),
+		id(2)
+	]
+	HRESULT renderToTarget(
+		[in] IUnknown* aPtrEVROutputNode,
+		[in] IUnknown* aPtrRenderTarget,
+		[in] BOOL aCopyMode);
+};
+
+[
+	object,
+	uuid(9D9FEEFB-0905-4829-866E-22AD28320183),
+	oleautomation,
+	local,
+	helpstring("Interface for controlling of switchers.")
+]
+interface ISwitcherControl : IDispatch
+{
+	[
+		helpstring("Pause all switchers in the session"),
+		id(1)
+	]
+	HRESULT pauseSwitchers([in]DWORD aSessionDescriptor);
+
+	[
+		helpstring("Resume all switchers in the session"),
+		id(2)
+	]
+	HRESULT resumeSwitchers([in]DWORD aSessionDescriptor);
+
+	[
+		helpstring("Pause selected switcher in the session"),
+		id(3)
+	]
+	HRESULT pauseSwitcher([in] IUnknown* aPtrSwitcherNode);
+
+	[
+		helpstring("Resume selected switcher in the session"),
+		id(4)
+	]
+	HRESULT resumeSwitcher([in] IUnknown* aPtrSwitcherNode);
+
+	[
+		helpstring("Detach all switchers in the session"),
+		id(5)
+	]
+	HRESULT detachSwitchers([in]DWORD aSessionDescriptor);
+
+	[
+		helpstring("Attach topology node the switcher"),
+		id(6)
+	]
+	HRESULT attachSwitcher(
+		[in] IUnknown* aPtrSwitcherNode,
+		[in] IUnknown* aPtrDownStreamNode);
+
+};
+
+[
+	object,
+	uuid(6BFFE928-3CB4-4BE2-9107-A0FA504EF623),
+	oleautomation,
+	helpstring("Interface for controlling of video mixer."),
+	dual
+]
+interface IVideoMixerControl : IDispatch
+{
+	[
+		helpstring("Method for setting of video stream position."),
+		id(1)
+	]
+	HRESULT setPosition(
+		[in] IUnknown* aPtrVideoMixerNode,
+		[in] FLOAT aLeft,
+		[in] FLOAT aRight,
+		[in] FLOAT aTop,
+		[in] FLOAT aBottom);
+
+	[
+		helpstring("Method for setting of source video stream position."),
+		id(2)
+	]
+	HRESULT setSrcPosition(
+		[in] IUnknown* aPtrVideoMixerNode,
+		[in] FLOAT aLeft,
+		[in] FLOAT aRight,
+		[in] FLOAT aTop,
+		[in] FLOAT aBottom);
+
+	[
+		helpstring("Method for setting of video stream ZOrder."),
+		id(3)
+	]
+	HRESULT setZOrder(
+		[in] IUnknown* aPtrVideoMixerNode,
+		[in] DWORD aZOrder);
+
+	[
+		helpstring("Method for setting of video stream Opacity."),
+		id(4)
+	]
+	HRESULT setOpacity(
+		[in] IUnknown* aPtrVideoMixerNode,
+		[in] FLOAT aOpacity);
+	
+	[
+		helpstring("Method for flushing of video stream."),
+		id(5)
+	]
+	HRESULT flush(
+		[in] IUnknown* aPtrVideoMixerNode);
+};
+
+[
+	object,
+	uuid(BD1C6DB2-E10B-4233-808D-68C4B03C15A4),
+	oleautomation,
+	helpstring("Interface for controlling of audio mixer."),
+	dual
+]
+interface IAudioMixerControl : IDispatch
+{
+	[
+		helpstring("Method for setting of audio stream relative volume."),
+		id(1)
+	]
+	HRESULT setRelativeVolume(
+		[in] IUnknown* aPtrAudioMixerNode,
+		[in] FLOAT aRelativeVolume);
+};
+
+[
+	object,
+	uuid(62F99475-1754-4B2B-BFA5-277BDCE03C4F),
+	oleautomation,
+	local,
+	helpstring("Interface of factory for creating of SAR output node."),
+	dual
+]
+interface ISARSinkFactory : IDispatch
+{
+	[
+		helpstring("Create output node."),
+		id(1)
+	]
+	HRESULT createOutputNode(
+		[out] IUnknown **aPtrPtrTopologyNode);
+};
+
+[
+	object,
+	uuid(9A0E43CA-D5D0-4774-8548-E31A9DDE36FB),
+	oleautomation,
+	local,
+	helpstring("Interface of factory for creating of SAR output node."),
+	dual
+]
+interface ISARVolumeControl : IDispatch
+{
+	[
+		helpstring("Retrieves the number of channels in the audio stream."),
+		id(1)
+	]
+	HRESULT getChannelCount(
+		[in] IUnknown* aPtrSARNode,
+		[out] UINT32*  aPtrCount);
+
+	[
+		helpstring("Sets the volume level for a specified channel in the audio stream."),
+		id(2)
+	]
+	HRESULT setChannelVolume(
+		[in] IUnknown*	 aPtrSARNode,
+		[in] UINT32      aIndex,
+		[in] const float aLevel);
+
+	[
+		helpstring("Retrieves the volume level for a specified channel in the audio stream."),
+		id(3)
+	]
+	HRESULT getChannelVolume(
+		[in] IUnknown*	aPtrSARNode,
+		[in] UINT32     aIndex,
+		[out] float*	aPtrLevel);
+};
+
+[
+	uuid(9BE7E321-6A95-4025-A2DD-4567687BFD53),
+	version(1.0),
+	helpstring("CaptureManager 1.0 Type Library")
+]
+library CaptureManagerLibrary
+{
+	importlib ("stdole32.tlb");
+	[uuid(4563EE3E-DA1E-4911-9F40-88A284E2DD69)]
+	coclass CoLogPrintOut
+	{
+		[default] interface ILogPrintOutControl;
+
+		interface ILogPrintOutCallbackControl;
+	};
+
+	[uuid(D5F07FB8-CE60-4017-B215-95C8A0DDF42A)]
+	coclass CoCaptureManager
+	{
+		[default] interface ICaptureManagerControl;
+	};
+
+	interface ISourceControl;
+
+	interface ISinkControl;
+
+	interface IFileSinkFactory;
+
+	interface ISessionControl;
+
+	interface ISession;
+
+	interface ISessionCallback;
+
+	interface ISampleGrabberCallSinkFactory;
+
+	interface ISampleGrabberCall;
+
+	interface IMediaTypeParser;
+
+	interface IStrideForBitmap;
+
+	interface ISampleGrabberCallbackSinkFactory;
+
+	interface ISampleGrabberCallback;
+
+	interface IEVRSinkFactory;
+
+	interface IStreamControl;
+
+	interface ISpreaderNodeFactory;
+
+	interface ISwitcherNodeFactory;
+
+	interface IEncoderControl;
+
+	interface IEncoderNodeFactory;
+
+	interface IWebCamControl;
+
+	interface IByteStreamSinkFactory;
+
+	interface IVersionControl;
+
+	interface IEVRStreamControl;
+
+	interface IEVRMultiSinkFactory;
+
+	interface ICaptureProcessor;
+
+	interface IInitilaizeCaptureSource;
+
+	interface ISourceRequestResult;
+
+	interface ICurrentMediaType;
+
+	interface IRenderingControl;
+
+	interface ISwitcherControl;
+
+	interface IMixerNodeFactory;
+
+	interface IVideoMixerControl;
+
+	interface IAudioMixerControl;
+
+	interface ISARSinkFactory;
+
+	interface ISARVolumeControl;
+
+	interface ILogPrintOutCallbackControl;
+
+	interface ILogPrintOutCallback;
+
+	enum LogLevel;
+
+	enum WebCamParametrFlag;
+
+	enum WebCamParametr;
+
+	enum SessionCallbackEventCode;
+};

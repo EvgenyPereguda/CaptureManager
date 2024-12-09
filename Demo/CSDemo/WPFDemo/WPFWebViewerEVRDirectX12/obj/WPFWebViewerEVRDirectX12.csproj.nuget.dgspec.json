@@ -1,0 +1,85 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\xirex\\OneDrive\\Documents\\capturemanager\\CaptureManager-Freeware\\CaptureManager\\Demo\\CSDemo\\WPFDemo\\WPFWebViewerEVRDirectX12\\WPFWebViewerEVRDirectX12.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\xirex\\OneDrive\\Documents\\capturemanager\\CaptureManager-Freeware\\CaptureManager\\Demo\\CSDemo\\CaptureManagerToCSharpProxy\\CaptureManagerToCSharpProxy.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\xirex\\OneDrive\\Documents\\capturemanager\\CaptureManager-Freeware\\CaptureManager\\Demo\\CSDemo\\CaptureManagerToCSharpProxy\\CaptureManagerToCSharpProxy.csproj",
+        "projectName": "CaptureManagerToCSharpProxy",
+        "projectPath": "C:\\Users\\xirex\\OneDrive\\Documents\\capturemanager\\CaptureManager-Freeware\\CaptureManager\\Demo\\CSDemo\\CaptureManagerToCSharpProxy\\CaptureManagerToCSharpProxy.csproj",
+        "frameworks": {
+          "net48": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net48": {}
+      }
+    },
+    "C:\\Users\\xirex\\OneDrive\\Documents\\capturemanager\\CaptureManager-Freeware\\CaptureManager\\Demo\\CSDemo\\WPFDemo\\WPFWebViewerEVRDirectX12\\WPFWebViewerEVRDirectX12.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\xirex\\OneDrive\\Documents\\capturemanager\\CaptureManager-Freeware\\CaptureManager\\Demo\\CSDemo\\WPFDemo\\WPFWebViewerEVRDirectX12\\WPFWebViewerEVRDirectX12.csproj",
+        "projectName": "WPFWebViewerEVRDirectX12",
+        "projectPath": "C:\\Users\\xirex\\OneDrive\\Documents\\capturemanager\\CaptureManager-Freeware\\CaptureManager\\Demo\\CSDemo\\WPFDemo\\WPFWebViewerEVRDirectX12\\WPFWebViewerEVRDirectX12.csproj",
+        "packagesPath": "C:\\Users\\xirex\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\xirex\\OneDrive\\Documents\\capturemanager\\CaptureManager-Freeware\\CaptureManager\\Demo\\CSDemo\\WPFDemo\\WPFWebViewerEVRDirectX12\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\xirex\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0-windows7.0": {
+            "targetAlias": "net6.0-windows",
+            "projectReferences": {
+              "C:\\Users\\xirex\\OneDrive\\Documents\\capturemanager\\CaptureManager-Freeware\\CaptureManager\\Demo\\CSDemo\\CaptureManagerToCSharpProxy\\CaptureManagerToCSharpProxy.csproj": {
+                "projectPath": "C:\\Users\\xirex\\OneDrive\\Documents\\capturemanager\\CaptureManager-Freeware\\CaptureManager\\Demo\\CSDemo\\CaptureManagerToCSharpProxy\\CaptureManagerToCSharpProxy.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
